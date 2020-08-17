@@ -1,0 +1,55 @@
+<script type="text/x-red" data-template-name="Loop Energy Meter">
+	<div class="form-row">
+		<p>
+			<label for="node-input-serial"><i class="fa fa-tag"></i> Serial</label>
+			<input type="text" id="node-input-serial" placeholder="Serial">
+		</p>
+		<p>
+			<label for="node-input-secret"><i class="fa fa-key"></i> Secret</label>
+			<input type="password" id="node-input-secret" placeholder="Secret">
+		</p>
+		<p class="help">
+			Get these values by logging into your-loop.com.
+		</p>
+		<p class="help">
+			Open your browser's console, and type in Drupal.settings.navetas_realtime.
+		</p>
+		<p class="help">
+			The returned JSON object will contain these values.
+		</p>		
+	</div>
+</script>
+
+<script type="text/x-red" data-help-name="Loop Energy Meter">
+	<p>Loop energy meter input node. Connects to a web socket on your-loop.com and subscribes to the electric_realtime event.</p>
+	<p>Outputs an object returned from the event in msg.payload.</p>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('Loop Energy Meter', {
+		category : 'network',
+		color : "#b1e0b1",
+		credentials : {
+			serial : { type: 'text' },
+			secret : { type: 'password' }
+		},
+		defaults : {
+			serial : {
+				value : ''
+			},
+			secret : {
+				value : ''
+			}
+		},
+		inputs : 0,
+		outputs : 1,
+		icon : "energy-loop.png",
+		align : "left",
+		label : function () {
+			return 'Loop Energy Meter';
+		},
+		labelStyle : function () {
+			return this.name ? "node_label_italic" : "";
+		}
+	}); 
+</script>
