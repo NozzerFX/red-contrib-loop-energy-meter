@@ -1,0 +1,22 @@
+{
+  "name": "red-contrib-loop-energy-meter",
+  "version": "0.1.0",
+  "description": "Socket access to loop energy saver service.",
+  "keywords": [
+    "node-red"
+  ],
+  "node-red": {
+    "nodes": {
+      "loop-energy-meter": "loop-energy-meter.js"
+    }
+  },
+  "main": "loop-energy-meter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Richard Norris",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io-client": "^2.3.0"
+  }
+}
